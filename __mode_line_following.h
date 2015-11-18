@@ -1,0 +1,36 @@
+//MODE: LINE FOLLOWING
+
+	//STEP 1: READ SENSORS
+		LINE_MODULE_READ();
+
+		#ifdef DEBUG
+			//LINE_MODULE_STATUS_SERIAL_PRINT();
+			//delay(500);
+		#endif
+
+	//STEP 2: DECIDE WHAT TO DO
+
+		if (SS3_STATUS == 0 and SS2_STATUS == 1 and SS4_STATUS == 1){
+			ROBI_FORWARD(100,100);
+
+		}
+		//TURNING RIGHT
+		if (SS2_STATUS == 0){	ROBI_FORWARD(50,100);}
+		if (SS1_STATUS == 0){	ROBI_FORWARD(0,100);}
+		//TURNING LEFT
+		if (SS4_STATUS == 0){	ROBI_FORWARD(100,50);}
+		if (SS5_STATUS == 0){	ROBI_FORWARD(100,0);}
+
+		if (SS1_STATUS == 0 and SS2_STATUS == 0 and SS3_STATUS == 0 and SS4_STATUS == 0 and SS5_STATUS == 0){
+			ROBI_STOP();
+		}
+
+		/*
+		if (SS1_STATUS == 1 and SS2_STATUS == 1 and SS3_STATUS == 1 and SS4_STATUS == 1 and SS5_STATUS == 1){
+			ROBI_STOP();
+		}
+		*/
+
+		//if (NEAR_STATUS == 1){ROBI_BACK(100,100);}
+		if (CLP_STATUS == 1){ROBI_BACK(100,100);}
+
