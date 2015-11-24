@@ -27,7 +27,7 @@ void TFT_DRAW_LOGO(){
     tft.setTextSize(1);
     tft.setTextColor(ST7735_WHITE);
     tft.setCursor(0, 42);
-    tft.print("ARDUINO ROBOT ROBI v2");
+    tft.print("ARDUINO ROBOT ROBIPRO");
     tft.drawLine(0, 52, tft.width()-1, 52, ST7735_WHITE);
     tft.drawLine(0, 150, tft.width()-1, 150, ST7735_WHITE);
     tft.setCursor(20, 152);
